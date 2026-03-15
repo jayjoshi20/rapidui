@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+// Explicitly define the runtime or allow it to fall back to Node.js which Vercel prefers for heavy SDKs.
+export const maxDuration = 60; // Set maximum execution time just in case
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function POST(req: Request) {
@@ -21,8 +24,9 @@ export async function POST(req: Request) {
     const code = result.response.text();
 
     return NextResponse.json({ code });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in generate API route:', error);
-    return NextResponse.json({ error: 'Failed to generate code' }, { status: 500 });
+    // Include more error details to help debug if it fails again
+    return NextResponse.json({ error: 'Failed to generate code', details: error?.message || String(error) }, { status: 500 });
   }
 }
