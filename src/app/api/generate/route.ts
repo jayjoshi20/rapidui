@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     // Append the user's prompt to the system instruction
     const fullPrompt = `${systemInstruction}\n\n${prompt}`;
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
     const result = await model.generateContent(fullPrompt);
     const code = result.response.text();
 
