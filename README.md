@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RapidUI - AI-Driven Component Generator
 
-## Getting Started
+RapidUI is a modern, full-stack web application that leverages the power of Google's Gemini AI to instantly generate production-ready React components styled with Tailwind CSS from simple natural language descriptions.
 
-First, run the development server:
+**Live Demo:** [https://rapidui-khaki.vercel.app/](https://rapidui-khaki.vercel.app/)
 
+## ✨ Features
+
+- **Natural Language to Code:** Describe the UI component you want, and the AI generates the complete React functional component.
+- **Instant Live Preview:** See the generated component rendered live within an isolated iframe sandbox before copying the code.
+- **Syntax Highlighting:** Beautifully formatted code block using `react-syntax-highlighter`.
+- **One-Click Copy:** Easily copy the generated code to your clipboard to drop directly into your project.
+- **Tailwind v4 Integration:** All components are fully styled using the latest Tailwind CSS utilities.
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **AI Integration:** Google Generative AI (Gemini 1.5 Flash)
+- **Deployment:** Vercel
+
+## 🚀 Getting Started Locally
+
+To run this project on your local machine:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/jayjoshi20/rapidui.git
+cd rapidui
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Set up Environment Variables
+Create a `.env.local` file in the root directory and add your Google Gemini API key:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 4. Run the development server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app/page.tsx` - The main client interface (Textarea, Live Preview, Code Editor).
+- `src/app/api/generate/route.ts` - The serverless API endpoint that securely connects to the Gemini API to stream the generated UI code.
 
-## Learn More
+## 🤝 Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions, issues, and feature requests are welcome!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Built as a showcase for integrating LLMs into modern full-stack React workflows.*
